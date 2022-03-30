@@ -13,15 +13,19 @@ import javax.persistence.Table;
 public class Employee {
 
     private long id;
+    private String userName;
+    private String password;
     private String firstName;
     private String lastName;
     private String emailId;
  
     public Employee() {
-  
+        
     }
  
-    public Employee(String firstName, String lastName, String emailId) {
+    public Employee(String userName,String password, String firstName, String lastName, String emailId) {
+         this.userName = userName;
+         this.password = password;
          this.firstName = firstName;
          this.lastName = lastName;
          this.emailId = emailId;
@@ -35,11 +39,28 @@ public class Employee {
     public void setId(long id) {
         this.id = id;
     }
- 
+
+    @Column(name = "user_name", nullable = false)
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUsername(String userName) {
+        this.userName = userName;
+      }
+
+    public String getPassword() {
+    return password;
+    }
+    public void setPassword(String password) {
+    this.password = password;
+    }
+
     @Column(name = "first_name", nullable = false)
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
